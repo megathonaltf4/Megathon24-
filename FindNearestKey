@@ -1,0 +1,18 @@
+// Add a function to find the nearest key within range
+int findNearestKey(int playerX, int playerY, float maxDistance) {
+ int nearestIndex = -1;
+ float nearestDistance = maxDistance;
+ 
+ for (int i = 0; i < MAX_ITEMS; i++) {
+ if (items[i].active) {
+ float dx = playerX - items[i].x;
+ float dy = playerY - items[i].y;
+ float distance = sqrt(dx*dx + dy*dy);
+ 
+ if (distance < nearestDistance) {
+ nearestDistance = distance;
+ nearestIndex = i;
+ }
+ }
+ }
+ 
