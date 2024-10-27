@@ -1,0 +1,21 @@
+
+// Check if the player collects an item
+void checkItemCollection(int playerX, int playerY, int playerRadius) {
+ for (int i = 0; i < MAX_ITEMS; i++) {
+ if (items[i].active) {
+ // Calculate distance between player and item
+ int dx = playerX - items[i].x;
+ int dy = playerY - items[i].y;
+ float distance = sqrt(dx*dx + dy*dy);
+ 
+ // If player touches item, collect it
+ if (distance < (playerRadius + items[i].radius)) {
+ items[i].active = false; // Deactivate item
+ if (playerInventory.count < 10) { // Check if inventory has space
+ playerInventory.items[playerInventory.count] = items[i].type;
+ playerInventory.count++;
+ }
+ }
+ }
+ }
+}
