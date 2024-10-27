@@ -16,3 +16,5 @@ int findNearestKey(int playerX, int playerY, float maxDistance) {
  }
  }
  
+return nearestIndex;
+}
