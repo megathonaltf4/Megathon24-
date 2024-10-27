@@ -1,0 +1,18 @@
+// Draw key in gold color
+ SDL_SetRenderDrawColor(renderer, 255, 215, 0, 255); // Gold color for keys
+ for (int w = 0; w < items[i].radius * 2; w++) {
+ for (int h = 0; h < items[i].radius * 2; h++) {
+ int dx = items[i].radius - w;
+ int dy = items[i].radius - h;
+ if ((dx*dx + dy*dy) <= (items[i].radius * items[i].radius)) {
+ SDL_RenderDrawPoint(renderer,
+ items[i].x - cameraX + dx - items[i].radius,
+ items[i].y - cameraY + dy - items[i].radius);
+ }
+ }
+ }
+ }
+ }
+}
+
+
