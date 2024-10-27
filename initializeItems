@@ -1,0 +1,11 @@
+// Initialize items
+void initItems() {
+ // Initialize the three keys at specified positions
+ items[0] = (Item){30, -880, 10, true, 1}; // Key 1
+ items[1] = (Item){1300, 20, 10, true, 1}; // Key 2
+ items[2] = (Item){1550, -590, 10, true, 1}; // Key 3
+ // Set remaining items as inactive
+ for (int i = 3; i < MAX_ITEMS; i++) {
+ items[i].active = false;
+ }
+}
