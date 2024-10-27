@@ -1,0 +1,13 @@
+
+// Add a function to check if player is in inventory area
+bool isPlayerInInventoryArea(int ballX, int ballY, int ballRadius, int cameraX, int cameraY) {
+ SDL_Rect inventoryArea = {10, 10, 200, 30};
+ SDL_Rect playerArea = {
+ ballX - cameraX - ballRadius,
+ ballY - cameraY - ballRadius,
+ ballRadius * 2,
+ ballRadius * 2
+ };
+ 
+ return SDL_HasIntersection(&inventoryArea, &playerArea);
+}
