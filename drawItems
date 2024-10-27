@@ -1,0 +1,19 @@
+// Modify the drawItems function to draw keys with a highlight for the nearest one
+void drawItems(SDL_Renderer *renderer, int cameraX, int cameraY, int nearestIndex) {
+ for (int i = 0; i < MAX_ITEMS; i++) {
+ if (items[i].active) {
+ // Draw highlight for nearest key
+ if (i == nearestIndex) {
+ SDL_SetRenderDrawColor(renderer, 255, 255, 0, 128); // Yellow highlight
+ for (int w = 0; w < (items[i].radius + 5) * 2; w++) {
+ for (int h = 0; h < (items[i].radius + 5) * 2; h++) {
+ int dx = (items[i].radius + 5) - w;
+ int dy = (items[i].radius + 5) - h;
+ if ((dx*dx + dy*dy) <= ((items[i].radius + 5) * (items[i].radius + 5))) {
+ SDL_RenderDrawPoint(renderer,
+ items[i].x - cameraX + dx - (items[i].radius + 5),
+ items[i].y - cameraY + dy - (items[i].radius + 5));
+ }
+ }
+ }
+ }
